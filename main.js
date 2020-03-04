@@ -99,18 +99,15 @@ function startGame() {
 }
 
 function resetAll() {
+    btnGuess.disabled = true
     userGuess.disabled = true
     resetButton.disabled = true
     btnStart.disabled = false
-    btnGuess.disabled = true
-
     clearInterval(myTime)
     time = 30
-        // timecounting()
     document.getElementById('timecount').innerHTML = `Available time: ${time}`
     randomNumber = Math.ceil(Math.random() * 100)
     document.getElementById('userInput').value = ""
-    document.getElementById("guessButton").disabled = false;
     history = []
     guessHistory.innerHTML = `History ${history}`
     message = ''
