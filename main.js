@@ -39,7 +39,7 @@ btnGuess.addEventListener("click", guess)
 btnStart.addEventListener('click', startGame)
 resetButton.addEventListener('click', resetAll)
 
-let time = 20 // time start from 0
+let time = 30 // time start from 0
 let myTime; // timer will be assign to this variable
 
 
@@ -89,6 +89,7 @@ function gameOver() {
 }
 
 function startGame() {
+    clearInterval(myTime)
     userGuess.disabled = false
     resetButton.disabled = false
     btnGuess.disabled = false
@@ -98,9 +99,15 @@ function startGame() {
 }
 
 function resetAll() {
+    userGuess.disabled = true
+    resetButton.disabled = true
+    btnStart.disabled = false
+    btnGuess.disabled = true
+
     clearInterval(myTime)
-    time = 20
-    timecounting()
+    time = 30
+        // timecounting()
+    document.getElementById('timecount').innerHTML = `Available time: ${time}`
     randomNumber = Math.ceil(Math.random() * 100)
     document.getElementById('userInput').value = ""
     document.getElementById("guessButton").disabled = false;
